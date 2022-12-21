@@ -15,8 +15,12 @@ public class Main {
             add(2);
         }};
         ArrayList<Integer> usedCards = new ArrayList<>() {{
-            
+            add(2);
+            add(2);
+            add(2);
         }};
+        int remainingSlots = 2;
+        System.out.println(getRankListOfBestRemainingCards(usedCards,remainingSlots,rankList));
     }
 
     public static ArrayList<Integer> getRankListOfBestRemainingCards(ArrayList<Integer> usedCards, int remainingSlots, ArrayList<Integer> rankList) {
@@ -28,8 +32,8 @@ public class Main {
                 usedCards.remove(rank);
             }
         }
-        for(int i = rankList.size(); i>remainingSlots; --i) {
-            placeholderList.remove(i-1);
+        for(int i = 0; i<remainingSlots; i++) {
+            placeholderList.remove(placeholderList.size()-i);
         }
         return placeholderList;
     }
